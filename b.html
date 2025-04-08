@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+    <script>
+        function validateForm() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let age = document.getElementById("age").value;
+
+            let namePattern = /^[A-Za-z]+$/;
+
+            if (!fname.match(namePattern) || !lname.match(namePattern)) {
+                alert("First and Last name should only contain alphabets!");
+                return false;
+            }
+
+            if (age < 18 || age > 50) {
+                alert("Age should be between 18 to 50!");
+                return false;
+            }
+
+            alert("Form Submitted Successfully!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Student Registration</h2>
+    <form onsubmit="return validateForm()">
+        First Name: <input type="text" id="fname" required> <br><br>
+        Last Name: <input type="text" id="lname" required> <br><br>
+        Age: <input type="number" id="age" required> <br><br>
+        <button type="submit">Register</button>
+    </form>
+
+</body>
+</html>
